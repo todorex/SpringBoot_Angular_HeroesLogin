@@ -1,0 +1,45 @@
+# 控制跨域访问
+cors:
+  allowedOrigins: "*"
+  allowedMethods: GET,POST,DELETE,PUT,OPTIONS
+  allowedHeaders: Origin,X-Requested-With,Content-Type,Accept,Accept-Encoding,Accept-Language,Host,Referer,Connection,User-Agent,Authorization
+
+# token配置
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 7200
+  issuer: IATA
+  authenticationPath: /auth
+
+# spring数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/test
+    dbcp2:
+      max-wait-millis: 10000
+      min-idle: 5
+      initial-size: 5
+  # jpa配置
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
+# 日志配置
+logging:
+  level:
+    # 配置包以及输出等级
+    com.todorex: debug
+  pattern:
+    console: "%d - %msg%n"
+  path: /var/localLog/
+  file: /var/localLog/springbootdemo.log
+
+
+
+

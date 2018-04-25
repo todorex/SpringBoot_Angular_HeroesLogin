@@ -1,0 +1,36 @@
+<!--使用管道进行格式化-->
+<!--<h2>{{ hero.name | uppercase }} Details</h2>-->
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <!--*ngFor 是一个 Angular 的复写器（repeater）指令。 它会为列表中的每项数据复写它的宿主元素。-->
+  <!--click 外面的圆括号会让 Angular 监听这个 <li> 元素的 click 事件。 当用户点击 <li> 时，Angular 就会执行表达式 onSelect(hero)。-->
+  <!--Angular 的 CSS 类绑定机制让根据条件添加或移除一个 CSS 类变得很容易。 只要把 [class.some-css-class]="some-condition" 添加到你要施加样式的元素上就可以了。-->
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero===selectedHero">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span>{{hero.name}}
+    </a>
+    <!--删除英雄-->
+    <button class="delete" title="delete hero"
+            (click)="delete(hero)">x</button>
+  </li>
+</ul>
+
+<!--[hero]="selectedHero" 是 Angular 的属性绑定语法。
+
+<!--这是一种单向数据绑定。从 HeroesComponent 的 selectedHero 属性绑定到目标元素的 hero 属性，并映射到了 HeroDetailComponent 的 hero 属性。&ndash;&gt;-->
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
+
+<!--添加新英雄-->
+<div>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
+
+

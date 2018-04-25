@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}!
+  </h1>
+  <!--&lt;!&ndash;要显示 HeroesComponent 你必须把它加到壳组件 AppComponent 的模板中。&ndash;&gt;-->
+  <!--<app-heroes></app-heroes>-->
+
+  <!--添加一个 <nav> 元素，并在其中放一个链接 <a> 元素，当点击它时，就会触发一个到 HeroesComponent 的导航。 -->
+  <nav>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/heroes">Heroes</a>
+  </nav>
+  <!--添加路由出口 （RouterOutlet）-->
+  <router-outlet></router-outlet>
+  <!--添加消息组件-->
+  <app-messages></app-messages>
+</div>
+
